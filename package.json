@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "webpack": "^4.41.5"
+  },
+  "name": "algorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
