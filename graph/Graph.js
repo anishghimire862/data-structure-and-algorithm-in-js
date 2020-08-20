@@ -24,6 +24,29 @@ class Graph {
       console.log(i + " -> " + conc); 
     } 
   } 
+
+  bfs(start) {
+    let visited = [];
+    for(let i=0; i<this.noOfVertices; i++) {
+      visited[i] = false;
+    }
+
+    let queue = [];
+    visited[start] = true;
+    queue.push(start);
+    while(queue.length !== 0) {
+      let getQueuedElement = queue.shift();
+      console.log('Queued: ', getQueuedElement);
+      let getList = this.adjList.get(getQueuedElement);
+      for(let i in getList) {
+        let negh = getList[i];
+        if(!visited[negh]) {
+          visited[negh] = true;
+          queue.push(negh);
+        }
+      }
+    }
+  }
 }
 
 var g = new Graph(6); 
@@ -40,4 +63,6 @@ g.addEdge('D', 'E');
 g.addEdge('E', 'F'); 
 g.addEdge('E', 'C'); 
 g.addEdge('C', 'F'); 
-g.printGraph(); 
+// g.printGraph(); 
+
+g.bfs('A');
